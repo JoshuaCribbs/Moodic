@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+  <link rel ="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+<html>
+<style>
+.a1{color: white;}
+h1{text-align: center;
+   font-size: 45px;
+   padding: 15px
+   }
+
+p{text-align: center;
+   font-size: 25px;
+   
+   }
+ .textentry {
+  display: grid;
+  place-items: center;
+  grid-gap: 30%;
+  
+  }
+  .submitbutton {
+	background-color: #1DB954; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: -10px;
+}
+ .button1{padding: 5% 10%;}
+ .button2{padding: 5% 10%;}
+ .button3{padding: 5% 10%;}
+ .button4{padding: 5% 10%;}
+
+a {
+  color: #ffffff;
+}
+
+</style>
+<body style="background-color:rgb(51, 51, 51);">
+
+
+<head>
+<title>Welcome/Home Screen</title>
+<h1 style="font-family:Marker Felt; color:white; padding-bottom: 10%;">Welcome to Moodic </h1>
+
+</head>
+
+
+<!--Forms Added by Jon D'Agati-->
+<body>
+  <div class="textentry">
+    <form action = 'survey/' method='GET'>
+      <button class="submitbutton border">Create New Playlist</button>
+    </form>
+    <form action = 'likedSongs/' method='GET'>
+      <button class="submitbutton border">Liked Songs</button>
+    </form>
+    <form action = 'accountSettings/' method='GET'>
+      <button class="submitbutton border">Account Settings</button>
+    </form>
+    <form action = '' method='GET'>
+      <button class="submitbutton border"><a href="{% url 'logout' %}">Logout</a></button>
+    </form>
+  </div>
+</body>
+</html> 

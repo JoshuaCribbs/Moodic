@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+
+body {
+  background-image: linear-gradient(to top,#989695,#80C593);
+  height: 1000px;  
+  background-repeat: no-repeat;
+  font-family: "Lato", sans-serif;}
+
+.main {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+
+.button {
+  border: 2px solid #008CBA;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+  margin: 14px 7px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #008CBA;
+  color: black; 
+  border: 2px solid #4CAF50;
+  }
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class= "main">
+  <h1>Moodsic</h1>
+  <p>Welcome, please select which option you would like to choose.</p>
+
+  <a href="{% url 'savedplaylists' %}" class=" button button1">Saved Playlist</a> 
+        <!--Redirects to savedPlaylists.html after clicking the button.-->
+  <a href="{% url 'newplaylist' %}" class=" button button1">New Playlist</a>
+  <a href="{% url 'likedsongs' %}" class=" button button1">Liked Songs</a>
+  <a href="{% url 'accountsettings' %}" class=" button button1">Account Settings</a>
+
+</div>
+</body>
+</html>

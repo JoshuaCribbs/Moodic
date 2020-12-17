@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+  <link rel ="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.backbutton {
+background-color: #C0C0C0;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 500%;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 24px;
+  margin-top:20px;
+}
+
+
+
+
+.buttons{
+display: flex;
+  flex-direction: row;
+  width: 100%;
+
+} 
+
+</style>
+</head>
+<body class="body">
+
+  <div class="sidenav" >
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="try">
+        <div class="bar"><a href="http://127.0.0.1:8000/home"><u>Home</u></a><br>
+          <a href="http://127.0.0.1:8000/home/survey/"><u>Create New Playlist</u></a><br>
+          <a href="http://127.0.0.1:8000/home/likedSongs"><u>Liked Songs</u></a><br>
+          <a href="http://127.0.0.1:8000/home/accountSettings"><u>Account Settings</u></a><br>
+          <a href="{% url 'logout' %}"><u>Logout</u></a><br>
+        </div>
+        
+        </div>
+    </div>
+    <nav class="navbar navbar-dark " style="background-color:rgb(0, 0, 0)">
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+
+<div class="main">
+  <h1 style="font-family:Marker Felt; color:#111; font-size:50px;">Moodic</h1>
+  <p style="font-size:30px;">Playlist Survey</p>
+</div>
+
+<!-- If/else block used to display the different formats and values of each question in the survey-->
+
+{% if current_question %}
+  <div class="box">
+      <p style="color: white;">{{current_question}}</p>
+      {% if question_index == 0 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="m1" name="mood" value=1>
+        <label for="m1">Happy</label><br>
+        <input type="radio" id="m2" name="mood" value=2>
+        <label for="m2">Sad</label><br>
+        <input type="radio" id="m3" name="mood" value=3>
+        <label for="m3">Angry</label><br>
+        <input type="radio" id="m4" name="mood" value=4>
+        <label for="m4">Anxious</label><br>
+      <input type="radio" id="m4" name="mood" value=5>
+        <label for="m4">Excited</label><br><br>
+      <button class="nextbutton" type = "submit">Next</button>
+        </div>
+        </form>
+      {% elif question_index == 1 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <label for="fname"></label>
+        <input type="text" id="song" name="song"><br><br>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 2 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <label for="fname"></label>
+        <input type="text" id="genre" name="genre"><br><br>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 3 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="Decade" value=195>
+        <label for="mag1">50s</label><br>
+        <input type="radio" id="mag2" name="Decade" value=196>
+        <label for="mag2">60s</label><br>
+        <input type="radio" id="mag3" name="Decade" value=197>
+        <label for="mag3">70s</label><br>
+        <input type="radio" id="mag4" name="Decade" value=198>
+        <label for="mag4">80s</label><br>
+        <input type="radio" id="mag5" name="Decade" value=199>
+        <label for="mag5">90s</label><br>
+        <input type="radio" id="mag6" name="Decade" value=200>
+        <label for="mag6">2000s</label><br>
+        <input type="radio" id="mag7" name="Decade" value=201>
+        <label for="mag7">2010s</label><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 4 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q5" value=1>
+        <label for="mag1">Yes</label><br>
+        <input type="radio" id="mag2" name="q5" value=2>
+        <label for="mag2">No</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+      </form>
+      {% elif question_index == 5 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q6" value=1>
+        <label for="mag1">Calm</label><br>
+        <input type="radio" id="mag2" name="q6" value=2>
+        <label for="mag2">Energetic</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 6 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q7" value=1>
+        <label for="mag1">Coffee</label><br>
+        <input type="radio" id="mag2" name="q7" value=2>
+        <label for="mag2">Tea</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 7 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q8" value=1>
+        <label for="mag1">Blue</label><br>
+        <input type="radio" id="mag2" name="q8" value=2>
+        <label for="mag2">Yellow</label><br>
+        <input type="radio" id="mag3" name="q8" value=3>
+        <label for="mag3">Green</label><br>
+        <input type="radio" id="mag4" name="q8" value=4>
+        <label for="mag4">Red</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 8 %}
+        <form action = {% url 'increment' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q9" value=1>
+        <label for="mag1">On a hike</label><br>
+        <input type="radio" id="mag2" name="q9" value=2>
+        <label for="mag2">Go for a drive</label><br>
+        <input type="radio" id="mag3" name="q9" value=3>
+        <label for="mag3">Be in the city</label><br>
+        <input type="radio" id="mag4" name="q9" value=4>
+        <label for="mag4">In bed</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Next</button>
+        </form>
+      {% elif question_index == 9 %}
+        <form action = {% url 'submit' %} method="POST"> 
+        {% csrf_token %}
+        <div style="color:rgb(255, 255, 255)">
+        <input type="radio" id="mag1" name="q10" value=1>
+        <label for="mag1">Summer</label><br>
+        <input type="radio" id="mag2" name="q10" value=2>
+        <label for="mag2">Spring</label><br>
+        <input type="radio" id="mag3" name="q10" value=3>
+        <label for="mag3">Fall</label><br>
+        <input type="radio" id="mag4" name="q10" value=4>
+      <label for="mag4">Winter</label><br><br>
+        </div>
+        <button class="nextbutton" type = "submit">Submit</button>
+        </form>
+  {% endif %}
+</div>
+<!-- message that will display if questions are not found-->
+{% else %}
+  <p>No Questions Available</p>
+{% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<html>
+
+<head>
+
+
+</head>
+
+<body class="body">
+
+  <div class="sidenav">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="try">
+        <div class="bar"><a href="http://127.0.0.1:8000/home"><u>Home</u></a><br>
+          <a href="http://127.0.0.1:8000/home/survey/"><u>Create New Playlist</u></a><br>
+          <a href="http://127.0.0.1:8000/home/likedSongs"><u>Liked Songs</u></a><br>
+          <a href="http://127.0.0.1:8000/home/accountSettings"><u>Account Settings</u></a><br>
+          <a href="{% url 'logout' %}"><u>Logout</u></a><br>
+        </div>
+
+      </div>
+    </div>
+    <nav class="navbar navbar-dark " style="background-color:rgb(0, 0, 0)">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="main">
+    <h1 style="font-family:Marker Felt; color:#111; font-size:50px;">Moodic</h1>
+    <p style="font-size:30px;">Liked Songs</p>
+  </div>
+
+
+  <div class="box">
+    <table id="playlists">
+      <!-- Loop that is passing in each song id and appending to uri, also a like button for each song -->
+      {% if showSongs %}
+      {% for id in idList %}
+      <tr>
+        <td>
+          <c href="#"><iframe src="https://open.spotify.com/embed/track/{{id}}" width="90%" height="80"
+              frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></c>
+          <a href="{% url 'recommendLikeSong' songID=id like=False %}">
+            <button type="button" class="btn btn-success" style="margin-top: -4%;">unlike</button>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+      {% elif not showSongs %}
+      <p>That search did not find any songs, please try again</p>
+      {% endif %}
+    </table>
+  </div>
+
+  </div>
+
+</body>
+
+</html>

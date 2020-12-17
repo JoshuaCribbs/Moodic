@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+  <link rel ="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<html>
+<style>
+   h1 {
+      text-align: center;
+      font-size: 45px;
+      font-family:Impact, Charcoal, sans-serif;
+   }
+
+   p {
+      text-align: center;
+      font-size: 25px;
+
+   }
+
+   .textentry {
+      display: grid;
+      place-items: center;
+      grid-gap: 20px;
+
+   }
+
+   .submitbutton {
+      background-color: #1DB954;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 6px 24px;
+   }
+
+   a {
+      color: #1DB954;
+   }
+
+</style>
+
+<body style="background-color:rgb(51, 51, 51);">
+
+   <div class="mLogin">
+      <head >
+         <title >Login Page</title>
+         <h1 style="font-family:Impact, Charcoal, sans-serif; color:rgb(161, 160, 160); font-size: 64px;">Moodic </h1>
+         <p1 style="color:white; width: 100%; text-align: center" > A mood based playlist generating tool</p1>
+      </head>
+   </div>
+   <body>
+      <p style="color:white; padding-top: 8%; font-size: 36px;"><b>Log In</b></p>
+      <div class="text-center">
+         <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group" style="margin-right:30px;">
+               <label style="color:white;">Username</label>
+               <input type="text"  name="username" placeholder="Enter username">
+            </div>
+            <div class="form-group" style="margin-left:6px; margin-right:30px;">
+               <label style="color:white;">Password</label>
+               <input type="password"  name="password" placeholder="Enter password">
+            </div>
+            <div>
+               <p1><a href="{% url 'createAccount' %}">New User? Create an Account</a></p1><br>
+               <p2><a href="{% url 'password_reset' %}">Forgot your Password?</a></p2>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Login</button>
+         </form>
+       </div>
+   </body>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+h1 {text-align: center;}
+body {
+  background-image: linear-gradient(to top,#989695,#80C593);
+  height: 1000px;  
+  background-repeat: no-repeat;
+  font-family: "Lato", sans-serif;}
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #313633;
+  overflow-x: hidden;
+  padding-top: 40px;
+  }
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+} 
+.sidenav a:hover {
+  color: #80C593;
+}
+
+.main {
+  margin-left: 220px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+  height: 100%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #dfd9d9;
+}
+tr:nth-child(3) {
+  background-color: #85cf89;
+}
+tr:nth-child(1) {
+  background-color: #787978;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+    <a href="{% url 'home' %}"></i> Home</a>
+    <a href="{% url 'savedplaylists' %}"></i> Saved Playlists</a>
+    <a href="{% url 'newplaylist' %}"></i> Create Playlist</a>
+    <a href="{% url 'likedsongs' %}"></i> Liked Songs</a>
+    <a href="{% url 'accountsettings' %}"></i> Account Settings</a>
+</div>
+<div class= "main">
+  <h1>Moodsic</h1>
+  <table>
+    <tr>
+      <th>Mood</th>
+      <th>Main Genre</th>
+      <th>Date Created</th>
+    </tr>
+  </table>
+
+  
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+  <link rel ="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<html>
+<head>
+
+<style>
+
+
+/* b{
+  color: #1DB954;
+}
+b:hover{
+color:white;
+} */
+
+/* .backbutton {
+background-color: #C0C0C0;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 14%;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 6px 24px;
+  margin-top:20px;
+} */
+
+
+
+/* .buttons{
+display: flex;
+  flex-direction: row;
+  width: 100%;
+
+} */
+
+</style>
+</head>
+<body>
+
+  <div class="sidenav" >
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="try">
+        <div class="bar"><a href="http://127.0.0.1:8000/home"><u>Home</u></a><br>
+          <a href="http://127.0.0.1:8000/home/survey/"><u>Create New Playlist</u></a><br>
+          <a href="http://127.0.0.1:8000/home/likedSongs"><u>Liked Songs</u></a><br>
+          <a href="http://127.0.0.1:8000/home/savedPlaylists"><u>Saved Playlists</u></a><br>
+          <a href="http://127.0.0.1:8000/home/accountSettings"><u>Account Settings</u></a><br>
+        </div>
+        
+        </div>
+    </div>
+    <nav class="navbar navbar-dark " style="background-color:rgb(0, 0, 0)">
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+
+<div class="main">
+  <h1 style="font-family:Marker Felt; color:#111; font-size:50px;">Moodic</h1>
+  <p style="font-size:30px;">Saved Playlists</p>
+</div>
+
+<div class="box">
+<p>Select Desired Mood:</p>
+  <input type="radio" id="mood1" name="mood" value="Happy">
+  <label for="age1">Happy</label><br>
+  <input type="radio" id="mood2" name="mood" value="Sad">
+  <label for="age2">Sad</label><br>
+  <input type="radio" id="mood3" name="mood" value="Energetic">
+  <label for="mood3">Energetic</label><br>
+  <input type="radio" id="mood4" name="mood" value="Calm">
+  <label for="mood3">Calm</label><br><br>
+</div>
+
+<div class="buttons">
+<button class="backbutton">Back</button>
+<button class="submitbutton">Submit</button>
+</div>
+
+</body>
+</html>
